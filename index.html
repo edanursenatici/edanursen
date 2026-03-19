@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edanur Sen Atici | Academic Website</title>
@@ -88,13 +87,15 @@
     }
 
     .profile-photo {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  border: 2px solid #eee;
-}
+      width: 100%;
+      max-width: 260px;
+      aspect-ratio: 1 / 1.08;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+      background: #f2f2f2;
+      margin-bottom: 1.25rem;
+    }
 
     h1, h2, h3 {
       margin: 0 0 0.8rem;
@@ -102,7 +103,10 @@
       color: var(--text);
     }
 
-    font-size: 1.15rem;
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
+    }
 
     h2 {
       font-size: 1.65rem;
@@ -204,7 +208,6 @@
     }
   </style>
 </head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
@@ -217,27 +220,21 @@
       </nav>
     </div>
   </header>
+
+  <main class="wrap layout" id="top">
     <aside class="sidebar">
-      <img src="WhatsApp Bild 2025-08-29 um 10.55.34_6718d72f.jpg" alt="Edanur Sen Atici profile photo" class="profile-photo" />
+      <img src="photo.jpg" alt="Edanur Sen Atici profile photo" class="profile-photo" />
       <h1>Edanur Sen Atici</h1>
       <p class="role">PhD Candidate in Neurobiology.</p>
 
       <ul class="contact-list">
         <li>Magdeburg, Germany</li>
-        <li>
-  <a href="mailto:Edanur.Sen@lin-magdeburg.de">
-
-</li>
+        <li><a href="mailto:Edanur.Sen@lin-magdeburg.de">Institutional Email</a></li>
         <li><a href="mailto:eda.sen94@gmail.com">Personal Email</a></li>
-        <li>
-  <a href="https://orcid.org/0000-0002-0948-9557">
-    
-</li>
-        <li>
-  <a href="https://bsky.app/profile/...">
-    
-</li>
+        <li><a href="https://orcid.org/0000-0002-0948-9557">ORCID</a></li>
+        <li><a href="https://bsky.app/profile/edasen.bsky.social">Bluesky</a></li>
       </ul>
+
       <a class="cv-button" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
     </aside>
 
