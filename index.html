@@ -203,6 +203,38 @@
       .topbar-inner {
         flex-direction: column;
         align-items: flex-start;
+        .topbar {
+  border-bottom: 1px solid #ececec;
+  padding: 0.9rem 0;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222222;
+}
+
+.nav {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: #7a7a7a;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover {
+  color: #222222;
+  text-decoration: none;
+}
+
+.nav a.active {
+  color: #222222;
+}
       }
     }
   </style>
@@ -218,6 +250,10 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
+         
+
+
+    
   </header>
 
   <main class="wrap layout" id="top">
@@ -232,6 +268,8 @@
         <li><a href="mailto:eda.sen94@gmail.com">Personal Email</a></li>
         <li><a href="https://orcid.org/0000-0002-0948-9557">ORCID</a></li>
         <li><a href="https://bsky.app/profile/edasen.bsky.social">Bluesky</a></li>
+        
+        
       </ul>
 
       <a class="cv-button" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
