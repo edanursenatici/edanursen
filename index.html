@@ -1,443 +1,290 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Edanur Sen Atici | Academic Website</title>
-  <meta name="description" content="PhD candidate in neurobiology academic website" />
+  <meta name="description" content="Edanur Sen Atici academic website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f7f5;
-      --surface: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #1f4b99;
-      --accent-soft: #edf3ff;
-      --max: 980px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.05);
-      --radius: 18px;
+      --bg: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --line: #e8e8e8;
+      --link: #2a5db0;
+      --max: 1040px;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
     }
 
     a {
-      color: var(--accent);
+      color: var(--link);
       text-decoration: none;
     }
 
-    a:hover { text-decoration: underline; }
+    a:hover {
+      text-decoration: underline;
+    }
 
-    .container {
+    .wrap {
       width: min(calc(100% - 2rem), var(--max));
       margin: 0 auto;
     }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(10px);
-      background: rgba(247,247,245,0.85);
-      border-bottom: 1px solid rgba(229,231,235,0.8);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .site-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .nav {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.95rem 0;
-      gap: 1rem;
-    }
-
-    .brand {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      color: var(--text);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1rem;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
-    .nav-links a {
-      color: var(--muted);
+    .nav a {
+      color: var(--text);
       font-size: 0.95rem;
-      font-weight: 500;
     }
 
-    .hero {
-      padding: 4.5rem 0 2.5rem;
-    }
-
-    .hero-grid {
+    .layout {
       display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
+      grid-template-columns: 300px 1fr;
+      gap: 3.5rem;
+      padding: 2.5rem 0 4rem;
     }
 
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 0.4rem 0.75rem;
-      border-radius: 999px;
-      margin-bottom: 1rem;
-    }
-
-    h1, h2, h3 {
-      line-height: 1.2;
-      margin: 0 0 0.8rem;
-      letter-spacing: -0.02em;
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      max-width: 12ch;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .lead {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 58ch;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.85rem;
-      flex-wrap: wrap;
-      margin-top: 1rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.82rem 1.1rem;
-      border-radius: 999px;
-      font-weight: 600;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--text);
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow);
-      text-decoration: none;
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
-    }
-
-    .profile-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 1.2rem;
-      box-shadow: var(--shadow);
+    .sidebar {
+      position: sticky;
+      top: 2rem;
+      align-self: start;
     }
 
     .profile-photo {
       width: 100%;
-      aspect-ratio: 1 / 1.1;
+      max-width: 260px;
+      aspect-ratio: 1 / 1.08;
       object-fit: cover;
-      border-radius: 18px;
       display: block;
-      background: linear-gradient(135deg, #e9eef8, #f8fafc);
+      border-radius: 4px;
+      background: #f2f2f2;
+      margin-bottom: 1.25rem;
     }
 
-    .profile-meta {
-      padding-top: 1rem;
+    h1, h2, h3 {
+      margin: 0 0 0.8rem;
+      line-height: 1.25;
+      color: var(--text);
     }
 
-    .profile-meta p {
-      margin: 0.35rem 0;
-      color: var(--muted);
-      font-size: 0.95rem;
+    h1 {
+      font-size: 1.55rem;
+      font-weight: 800;
     }
 
-    .section {
-      padding: 1.2rem 0 1.6rem;
+    h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      margin-top: 0.25rem;
     }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.4rem;
-      box-shadow: var(--shadow);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
-
-    .list {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .pub-item, .project-item {
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .pub-item:last-child, .project-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .pub-title, .project-title {
+    h3 {
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 0.25rem;
+      margin-top: 2rem;
     }
 
-    .meta {
+    .role {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar p, .sidebar li, .content p, .content li {
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .muted {
       color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.35rem;
     }
 
-    .tag-row {
-      display: flex;
-      gap: 0.55rem;
-      flex-wrap: wrap;
-      margin-top: 0.8rem;
+    .contact-list,
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
     }
 
-    .tag {
-      font-size: 0.82rem;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
+    .contact-list li,
+    .link-list li {
+      margin: 0.45rem 0;
+      color: var(--muted);
+    }
+
+    .content section {
+      margin-bottom: 2.4rem;
+    }
+
+    .content p {
+      margin: 0 0 1rem;
+    }
+
+    .pub-list {
+      padding-left: 1.2rem;
+      margin: 0;
+    }
+
+    .pub-list li {
+      margin-bottom: 1rem;
+    }
+
+    .cv-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.62rem 0.9rem;
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 4px;
       font-weight: 600;
     }
 
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1rem;
-      margin-top: 0.5rem;
+    .cv-button:hover {
+      text-decoration: none;
+      background: #fafafa;
     }
 
     footer {
-      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      padding: 1.2rem 0 2rem;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.92rem;
     }
 
     @media (max-width: 860px) {
-      .hero-grid,
-      .grid-2 {
+      .layout {
         grid-template-columns: 1fr;
+        gap: 2rem;
       }
 
-      .hero {
-        padding-top: 3rem;
+      .sidebar {
+        position: static;
       }
 
-      .nav {
-        align-items: flex-start;
+      .profile-photo {
+        max-width: 220px;
+      }
+
+      .topbar-inner {
         flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="container nav">
-      <a href="#top" class="brand">Edanur Sen Atici</a>
-      <nav class="nav-links" aria-label="Main navigation">
+    <div class="wrap topbar-inner">
+      <a class="site-title" href="#top">Edanur Sen Atici</a>
+      <nav class="nav">
         <a href="#about">About</a>
-        <a href="#research">Research</a>
+        <a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
         <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">PhD Candidate in Neurobiology</div>
-          <h1>Neurobiology, learning, memory, and behavioral mechanisms.</h1>
-          <p class="lead">
-            I am a PhD candidate in <strong>neurobiology</strong> at <strong>the Leibniz Institute for Neurobiology (LIN) and Otto-von-Guericke University Magdeburg</strong>. My work focuses on <strong>learning and memory</strong>, <strong>genetic mechanisms of memory formation</strong>, and <strong>behavioral neurobiology in larval <em>Drosophila</em></strong>.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
-            <a class="btn" href="#publications">Selected Publications</a>
-          </div>
-          <div class="tag-row" aria-label="Research areas">
-            <span class="tag">Learning & Memory</span>
-            <span class="tag">Drosophila Neurobiology</span>
-            <span class="tag">Molecular Techniques</span>
-          </div>
-        </div>
+  <main class="wrap layout" id="top">
+    <aside class="sidebar">
+      <img src="WhatsApp Bild 2025-08-29 um 10.55.34_6718d72f.jpg" alt="Edanur Sen Atici profile photo" class="profile-photo" />
+      <h1>Edanur Sen Atici</h1>
+      <p class="role">PhD Candidate in Neurobiology.</p>
 
-        <aside class="profile-card">
-          <img src="WhatsApp Bild 2025-08-29 um 10.55.34_6718d72f.jpg" alt="Edanur Sen Atici profile photo" class="profile-photo" />
-          <div class="profile-meta">
-            <h3>Edanur Sen Atici</h3>
-            <p>PhD Candidate in Neurobiology</p>
-            <p>Genetics of Learning and Memory</p>
-            <p>Leibniz Institute for Neurobiology (LIN)</p>
-            <p><a href="mailto:Edanur.Sen@lin-magdeburg.de">Edanur.Sen@lin-magdeburg.de</a></p>
-          </div>
-        </aside>
-      </div>
-    </section>
+      <ul class="contact-list">
+        <li>Magdeburg, Germany</li>
+        <li><a href="mailto:Edanur.Sen@lin-magdeburg.de">Institutional Email</a></li>
+        <li><a href="mailto:eda.sen94@gmail.com">Personal Email</a></li>
+        <li><a href="https://orcid.org/0000-0002-0948-9557">ORCID</a></li>
+        <li><a href="https://bsky.app/profile/edasen.bsky.social">Bluesky</a></li>
+      </ul>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="card">
-          <h2>About</h2>
-          <p>
-            I study <strong>neurobiology of learning and memory</strong> with a particular interest in <strong>the genetic and behavioral mechanisms underlying memory formation</strong>. My recent work examines how associative learning, conditioned inhibition, and reinforcement-related processes can be understood through <strong>behavioral assays, molecular methods, and model-organism research</strong>. I am especially interested in questions at the intersection of <strong>genetics</strong> and <strong>systems and behavioral neuroscience</strong>.
-          </p>
-          <p>
-            Before my current doctoral work, I completed both my <strong>M.Sc. and B.Sc. in Biology</strong> at <strong>Middle East Technical University (METU)</strong>. My background includes research experience in neurobiology, disease-related neuroscience, molecular systems biology of learning, and signal transduction.
-          </p>
-        </div>
-      </div>
-    </section>
+      <a class="cv-button" href="cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+    </aside>
 
-    <section id="research" class="section">
-      <div class="container grid-2">
-        <div class="card">
-          <h2>Research Interests</h2>
-          <div class="list">
-            <div>
-              <div class="pub-title">1. Learning and Memory</div>
-              <div class="meta">Research on the biological basis of learning, memory formation, and reinforcement-related behavioral processes.</div>
-            </div>
-            <div>
-              <div class="pub-title">2. Larval <em>Drosophila</em> Behavior</div>
-              <div class="meta">Behavioral and connectomic questions in larval <em>Drosophila</em>, including conditioned inhibition, sensory preconditioning, and related paradigms.</div>
-            </div>
-            <div>
-              <div class="pub-title">3. Molecular Neurobiology</div>
-              <div class="meta">Use of molecular and biochemical techniques such as Western blotting, PCR-based workflows, immunohistochemistry, and cell culture methods.</div>
-            </div>
-          </div>
-        </div>
+    <div class="content">
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          I am a PhD candidate in <strong>neurobiology</strong> at the <strong>Leibniz Institute for Neurobiology (LIN)</strong> and <strong>Otto-von-Guericke University Magdeburg</strong>. My work focuses on learning and memory, with particular emphasis on the genetic and behavioral mechanisms underlying memory formation.
+        </p>
+        <p>
+          My current research examines associative learning, conditioned inhibition, and reinforcement-related behavioral processes in larval <em>Drosophila</em>, integrating behavioral paradigms with molecular and genetic approaches.
+        </p>
+        <p>
+          Before my doctoral work, I completed both my M.Sc. and B.Sc. in Biology at <strong>Middle East Technical University (METU)</strong>. My research experience spans neurobiology, disease-related neuroscience, molecular systems biology of learning, and experimental laboratory methods including Western blotting, PCR-based workflows, immunohistochemistry, and cell culture.
+        </p>
+      </section>
 
-        <div class="card">
-          <h2>Academic Links</h2>
-          <div class="list">
-            <div><a href="#">Google Scholar</a></div>
-            <div><a href="https://orcid.org/0000-0002-0948-9557">ORCID</a></div>
-            <div><a href="https://bsky.app/profile/edasen.bsky.social">Bluesky</a></div>
-            <div><a href="mailto:eda.sen94@gmail.com">Secondary Email</a></div>
-            <div><a href="cv.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <section id="research">
+        <h3>Research Interests</h3>
+        <p>
+          Learning and memory, behavioral neurobiology, larval <em>Drosophila</em>, conditioned inhibition, sensory preconditioning, reinforcement learning, genetics of memory formation, and molecular neurobiology.
+        </p>
+      </section>
 
-    <section id="publications" class="section">
-      <div class="container">
-        <div class="card">
-          <h2>Selected Publications</h2>
-          <div class="list">
-            <article class="pub-item">
-              <div class="pub-title">Sen, E., Kota, K. P., Panchal, R. G., Bavari, S., &amp; Kiris, E. (2021). Screening of a focused ubiquitin-proteasome pathway inhibitor library identifies small molecules as novel modulators of botulinum neurotoxin type A toxicity.</div>
-              <div class="meta">Frontiers in Pharmacology</div>
-              <div><a href="#">Paper Link</a></div>
-            </article>
+      <section id="publications">
+        <h3>Selected Publications</h3>
+        <ol class="pub-list">
+          <li>
+            Sen, E., El-Keredy, A., Jacob, N., Mancini, N., Asnaz, G., Widmann, A., Gerber, B., &amp; Thoener, J. (2024). <em>Cognitive limits of larval Drosophila: testing for conditioned inhibition, sensory preconditioning, and second-order conditioning.</em> Learning &amp; Memory.
+          </li>
+          <li>
+            Koc, D., Ezgin, S., Kavakli, E., Kota, K. P., Sen, E., Mahone, C., Palko, M. E., Cazares, L. H., Can, T., Tessarollo, L., Bavari, S., Marion, A., &amp; Kiris, E. (2025). <em>Enhanced phosphorylation of SNAP-25 at ser187 following cleavage by botulinum neurotoxin serotype A drives the dominant-negative effect of the cleaved fragment: Implications for long-lasting effects of the toxin.</em> PLoS Pathogens.
+          </li>
+          <li>
+            Sen, E., Kota, K. P., Panchal, R. G., Bavari, S., &amp; Kiris, E. (2021). <em>Screening of a focused ubiquitin-proteasome pathway inhibitor library identifies small molecules as novel modulators of botulinum neurotoxin type A toxicity.</em> Frontiers in Pharmacology.
+          </li>
+        </ol>
+      </section>
 
-            <article class="pub-item">
-              <div class="pub-title">Sen, E., El-Keredy, A., Jacob, N., Mancini, N., Asnaz, G., Widmann, A., Gerber, B., &amp; Thoener, J. (2024). Cognitive limits of larval <em>Drosophila</em>: testing for conditioned inhibition, sensory preconditioning, and second-order conditioning.</div>
-              <div class="meta">Learning &amp; Memory</div>
-              <div><a href="#">Paper Link</a></div>
-            </article>
-
-            <article class="pub-item">
-              <div class="pub-title">Koc, D., Ezgin, S., Kavakli, E., Kota, K. P., Sen, E., Mahone, C., Palko, M. E., Cazares, L. H., Can, T., Tessarollo, L., Bavari, S., Marion, A., &amp; Kiris, E. (2025). Enhanced phosphorylation of SNAP-25 at ser187 following cleavage by botulinum neurotoxin serotype A drives the dominant-negative effect of the cleaved fragment: Implications for long-lasting effects of the toxin.</div>
-              <div class="meta">PLoS Pathogens</div>
-              <div><a href="#">Paper Link</a></div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="container">
-        <div class="card">
-          <h2>Projects</h2>
-          <div class="list">
-            <article class="project-item">
-              <div class="project-title">Genetics of Learning and Memory</div>
-              <div class="meta">Leibniz Institute for Neurobiology</div>
-              <p>Current doctoral research focused on the genetic basis of memory formation and behavioral mechanisms of learning, using interdisciplinary and data-driven approaches.</p>
-            </article>
-
-            <article class="project-item">
-              <div class="project-title">Neurobiology of Disease Lab</div>
-              <div class="meta">Middle East Technical University</div>
-              <p>Research and laboratory management work in neurobiology-related disease models, including molecular techniques, cell culture, and collaborative project coordination.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="card">
-          <h2>Contact</h2>
-          <p>
-            For collaborations, conference invitations, or academic inquiries, please contact me by email.
-          </p>
-          <div class="contact-links">
-            <a href="mailto:Edanur.Sen@lin-magdeburg.de">Institutional Email</a>
-            <a href="mailto:eda.sen94@gmail.com">Personal Email</a>
-            <a href="https://orcid.org/0000-0002-0948-9557">ORCID</a>
-            <a href="https://bsky.app/profile/edasen.bsky.social">Bluesky</a>
-          </div>
-        </div>
-      </div>
-    </section>
+      <section id="contact">
+        <h3>Contact</h3>
+        <p>
+          For collaborations, conference invitations, or academic inquiries, please contact me by email at <a href="mailto:Edanur.Sen@lin-magdeburg.de">Edanur.Sen@lin-magdeburg.de</a>.
+        </p>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <div class="container">
-      © 2026 Edanur Sen Atici · Built with GitHub Pages
-    </div>
+    <div class="wrap">© 2026 Edanur Sen Atici</div>
   </footer>
 </body>
 </html>
